@@ -1,91 +1,99 @@
-import { Button, View, StyleSheet, TextInput, Image, TouchableOpacity, Text } from 'react-native';
-import {  } from 'react-native-web';
-const logo = require('../assets/logo.png');
+import { Button, View, StyleSheet, TextInput, Image, TouchableOpacity, Text, ImageBackground } from 'react-native';
+const logo = require('../assets/completedLogo.png');
 const facebook = require('../assets/facebook.png');
 const google = require('../assets/google.png');
+const background = require('../assets/background.png');
 
 export default function Login({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.box}>
-                <Image
-                    style={styles.logo}
-                    source={logo}
-                />
-                <View style={styles.inputs}>
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        placeholder='Email or username'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='Password'
-                    />
-                </View>
-
-                <TouchableOpacity
-                    style={styles.btnContainer}
-                    onPress={() => navigation.navigate("main")}
-                >
-                    <Text 
-                        style={{
-                            fontFamily: 'Poppins', 
-                            fontWeight: '600', 
-                            fontSize: '1.24rem'}}
-                    >
-                        Login
-                    </Text>
-                </TouchableOpacity>
-
-                <View style={styles.fLogs}>
+            <ImageBackground source={background} style={styles.image} resizeMode='cover'>
+                <View style={styles.box}>
                     <Image
-                        style={styles.logs}
-                        source={google}
+                        style={styles.logo}
+                        source={logo}
                     />
-                    <Image
-                        style={styles.logs}
-                        source={facebook}
-                    />
-                </View>
-                    
-                <View>
-                    <Text 
-                        style={{
-                            fontFamily: 'Poppins', 
-                            fontWeight: '500', 
-                            fontSize: '1rem',
-                            display: 'flex',
-                            gap: '4px',
-                            color: '#fff',
-                            marginTop: '3rem'}}
+                    <View style={styles.inputs}>
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            placeholder='Email or username'
+                        />
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='Password'
+                        />
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.btnContainer}
+                        onPress={() => navigation.navigate("main")}
                     >
-                        Doesn`t have an account?
-                        <Text
-                            onPress={() => navigation.navigate("cadastro")}
+                        <Text 
                             style={{
                                 fontFamily: 'Poppins', 
                                 fontWeight: '600', 
-                                fontSize: '1rem',
-                                textDecorationLine: '',
-                                color: 'black'}}
+                                fontSize: '1.24rem'}}
                         >
-                            Register
+                            Login
                         </Text>
-                    </Text>
-                    
+                    </TouchableOpacity>
+
+                    <View style={styles.fLogs}>
+                        <Image
+                            style={styles.logs}
+                            source={google}
+                        />
+                        <Image
+                            style={styles.logs}
+                            source={facebook}
+                        />
+                    </View>
+                        
+                    <View>
+                        <Text 
+                            style={{
+                                fontFamily: 'Poppins', 
+                                fontWeight: '500', 
+                                fontSize: '1rem',
+                                display: 'flex',
+                                gap: '4px',
+                                color: '#363636',
+                                marginTop: '3rem'}}
+                        >
+                            Doesn`t have an account?
+                            <Text
+                                onPress={() => navigation.navigate("cadastro")}
+                                style={{
+                                    fontFamily: 'Poppins', 
+                                    fontWeight: '600', 
+                                    fontSize: '1rem',
+                                    textDecorationLine: '',
+                                    color: 'black'}}
+                            >
+                                Register
+                            </Text>
+                        </Text>
+                        
+                    </View>
                 </View>
-            </View>
+            </ImageBackground>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100vw',
+        height: '100vh'
+    },
     container: {
         flex: 1,
-        backgroundColor: '#080708',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -93,7 +101,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FF902B',
+        backgroundColor: '#FF881A',
+        padding: '30px',
         borderRadius: '12px',
         width: '180px',
         maxHeight: '50px',
@@ -112,13 +121,13 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: '0',
         width: '100vw',
         height: '75vh',
-        backgroundColor: '#786452'
+        backgroundColor: '#E8E8E8'
 
     },
     logo: {
         marginTop: '20px',
         width: '114px',
-        height: '58px',
+        height: '70px',
         resizeMode: 'contain',
         
     },
@@ -131,10 +140,11 @@ const styles = StyleSheet.create({
     },
     input: {
         width: "100%",
-        backgroundColor: "#080708",
+        backgroundColor: "#242424",
         color: "#fff",
         fontFamily: 'Poppins',
         height: '4rem',
+        paddingVertical: '2.3rem',
         borderRadius: '12px',
         paddingLeft: '15px',
         fontSize: '1rem'
@@ -149,9 +159,9 @@ const styles = StyleSheet.create({
     },
     logs: {
         marginTop: '20px',
-        width: '50px',
-        height: '50px',
-        resizeMode: 'contain',
+        width: '40px',
+        height: '40px',
+        resizeMode: 'center',
         
     },
    

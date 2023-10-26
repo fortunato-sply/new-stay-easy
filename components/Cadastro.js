@@ -1,123 +1,129 @@
 import { useState } from 'react';
-import { View, StyleSheet, TextInput, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TextInput, TouchableOpacity, Text, ImageBackground } from 'react-native';
 import { CheckBox } from 'react-native-elements'
-const logo = require('../assets/logo.png');
-const facebook = require('../assets/facebook.png');
-const google = require('../assets/google.png');
+const background = require('../assets/background.png');
 
 export default function Cadastro({ navigation }) {
     const [isChecked, setIsChecked] = useState(true);
 
     return (
         <View style={styles.container}>
-            <View style={styles.box}>
-                
-                <View style={styles.inputs}>
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        placeholder='Email or username'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='Name'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='CPF'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='Birthdate'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='Password'
-                    />
-                    <TextInput 
-                        style={styles.input}
-                        placeholderTextColor="#fff" 
-                        secureTextEntry
-                        placeholder='Confirm Password'
-                    />
-                    <View style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                         <CheckBox
-                            center
-                            style={styles.check}
-                            checked={isChecked}
-                            checkedColor={'#FF902B'}
-                            onPress={() => setIsChecked(!isChecked)}
+            <ImageBackground source={background} style={styles.image} resizeMode='cover'>
+                <View style={styles.box}>
+                    
+                    <View style={styles.inputs}>
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            placeholder='Email or username'
                         />
-                        <Text
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='Name'
+                        />
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='CPF'
+                        />
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='Birthdate'
+                        />
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='Password'
+                        />
+                        <TextInput 
+                            style={styles.input}
+                            placeholderTextColor="#fff" 
+                            secureTextEntry
+                            placeholder='Confirm Password'
+                        />
+                        <View style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}>
+                            <CheckBox
+                                center
+                                style={styles.check}
+                                checked={isChecked}
+                                checkedColor={'#FF902B'}
+                                onPress={() => setIsChecked(!isChecked)}
+                            />
+                            <Text
+                                style={{
+                                    fontFamily: 'Poppins', 
+                                    fontWeight: '600', 
+                                    fontSize: '1.05rem'}}
+                            >
+                                Subscribe to newsletter
+                            </Text>
+                        </View>
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.btnContainer}
+                        onPress={() => navigation.navigate("main")}
+                    >
+                        <Text 
                             style={{
                                 fontFamily: 'Poppins', 
                                 fontWeight: '600', 
-                                fontSize: '1.05rem'}}
+                                fontSize: '1.24rem'}}
                         >
-                            Subscribe to newsletter
+                            Register
+                        </Text>
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text 
+                            style={{
+                                fontFamily: 'Poppins', 
+                                fontWeight: '500', 
+                                fontSize: '1rem',
+                                display: 'flex',
+                                gap: '4px',
+                                color: '#363636',
+                                marginTop: '2.5rem'}}
+                        >
+                            Already have an account?
+                            <Text
+                                onPress={() => navigation.navigate("login")}
+                                style={{
+                                    fontFamily: 'Poppins', 
+                                    fontWeight: '600', 
+                                    fontSize: '1rem',
+                                    textDecorationLine: '',
+                                    color: 'black'}}
+                            >
+                                Login
+                            </Text>
                         </Text>
                     </View>
                 </View>
-
-                <TouchableOpacity
-                    style={styles.btnContainer}
-                    onPress={() => navigation.navigate("main")}
-                >
-                    <Text 
-                        style={{
-                            fontFamily: 'Poppins', 
-                            fontWeight: '600', 
-                            fontSize: '1.24rem'}}
-                    >
-                        Register
-                    </Text>
-                </TouchableOpacity>
-
-                <View>
-                    <Text 
-                        style={{
-                            fontFamily: 'Poppins', 
-                            fontWeight: '500', 
-                            fontSize: '1rem',
-                            display: 'flex',
-                            gap: '4px',
-                            color: '#fff',
-                            marginTop: '3rem'}}
-                    >
-                        Already have an account?
-                        <Text
-                            onPress={() => navigation.navigate("login")}
-                            style={{
-                                fontFamily: 'Poppins', 
-                                fontWeight: '600', 
-                                fontSize: '1rem',
-                                textDecorationLine: '',
-                                color: 'black'}}
-                        >
-                            Login
-                        </Text>
-                    </Text>
-                </View>
-
-            </View>
+            </ImageBackground>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100vw',
+        height: '100vh'
+    },
     container: {
         flex: 1,
         backgroundColor: '#080708',
@@ -128,11 +134,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FF902B',
+        backgroundColor: '#FF881A',
         borderRadius: '12px',
+        padding: '30px',
         width: '180px',
         maxHeight: '50px',
-        marginTop: '5rem'
+        marginTop: '2rem'
     },
     box: {
         flex: 1,
@@ -146,10 +153,9 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: '0',
         borderBottomRightRadius: '0',
         width: '100vw',
-        height: '90vh',
+        height: '95vh',
         paddingTop: '80px',
-        backgroundColor: '#786452'
-
+        backgroundColor: '#E8E8E8',
     },
     inputs: {
         width: "80%",
@@ -160,12 +166,13 @@ const styles = StyleSheet.create({
     },
     input: {
         width: "100%",
-        backgroundColor: "#080708",
+        backgroundColor: "#242424",
         color: "#fff",
         fontFamily: 'Poppins',
         height: '4rem',
+        paddingVertical: '2.3rem',
         borderRadius: '12px',
-        padding: '15px',
+        paddingLeft: '15px',
         fontSize: '1rem'
     },
     check: {
