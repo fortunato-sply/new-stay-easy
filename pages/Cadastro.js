@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
         padding: '30px',
         width: '180px',
         maxHeight: '50px',
-        marginTop: '2rem'
+        marginTop: '3rem'
     },
     box: {
         flex: 1,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: '0',
         borderBottomRightRadius: '0',
         width: '100vw',
-        height: '95vh',
+        height: '98vh',
         paddingTop: '80px',
         backgroundColor: '#E8E8E8',
     },
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     check: {
         backgroundColor: 'FF902B',
         color: 'FF902B',
-        width: '100%'
+        width: '100%',
     }
    
 });
